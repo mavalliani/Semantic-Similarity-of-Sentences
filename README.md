@@ -15,16 +15,17 @@ The code of this essay has been hosted here.
 ### Common-word Feature Model:
 This method is the simplest to think of and has its origins in the “set theory”.  After lemmatization, we use the ratio of the intersection-count with the union-count. Higher the ratio, the similar the sentence is. 
 This method has proven to be bad with short text data.
+
 ### Cosine Similarity with Word-Embeddings:
 Vectorizing the sentence in an N-dimensional space, cosine similarity gives us a (-1,1) measure of the similarity which directly derives from the inner product of the vectors.
 For sample code, I have used Glove embedding. Average of the word embedding of the sentence have been used. Our performance increased from the common-word model but still lagging way behind from a “release worthy” point. This model can be used as a baseline model.
-Smooth Inverse Frequency method also falls under this method where instead of assigning flat and equal weights to all words, we assign weights proportional to the inverse of the frequency in the corpus. This weight is also controlled by a learning rate.
+***Smooth Inverse Frequency*** method also falls under this method where instead of assigning flat and equal weights to all words, we assign weights proportional to the inverse of the frequency in the corpus. This weight is also controlled by a learning rate.
 
-###Word Mover’s Distance:
+### Word Mover’s Distance:
 This method comes from Matt Kusner and team from Washington University, where the introduce a concept of ‘travel’. Quoting the authors, ‘The WMD distance measures the dissimilarity between two text documents as the minimum amount of distance that the embedded words of one document need to “travel” to reach the embedded words of another document’. 
 So the more the words have to travel, the more the distance and the more dissimilar the documents are.
 
-###Sentence Encoding Methods:
+### Sentence Encoding Methods:
 Just as words have been transformed into word embedding, there have been attempts to encode sentences into embedding vectors. Using sentence embeddings for other NLP tasks can be attributed as a form of Transfer Learning. More importantly, Sentence encoding, unlike Word Embedding, is obtained through supervised training. This can help extract meaningful results for our problem. It also accounts for word order in the sentences (eg. Dog bites the man; Man bites the dog) making it more meaningful.
 We use 2 different sentence embeddings:
 1.	Infersent – by facebook
